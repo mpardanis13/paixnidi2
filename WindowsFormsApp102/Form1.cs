@@ -15,6 +15,7 @@ namespace WindowsFormsApp102
     {
         int score = 0;
         int timeRemaining = 59;
+        List<int> scores = new List<int>();
         List<PictureBox> bullets = new List<PictureBox>();
         List<PictureBox> enemyBullets = new List<PictureBox>();
         Random r;
@@ -26,8 +27,6 @@ namespace WindowsFormsApp102
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //MessageBox.Show("Hello");
-            //button1.Location = new Point(button1.Location.X + 10, button1.Location.Y+15);
             foreach(PictureBox p in bullets)
             {
                 p.Location = new Point(p.Location.X, p.Location.Y - 10);
@@ -37,7 +36,6 @@ namespace WindowsFormsApp102
                     score += 10;
                     label1.Text = "Score: " + score.ToString();
                     p.Location = new Point(-100, p.Location.Y+20);
-                   
                 }
             }
             foreach(PictureBox p in enemyBullets)
@@ -50,8 +48,6 @@ namespace WindowsFormsApp102
                     else score = 0;
                     label1.Text = "Score: " + score.ToString();
                     p.Location = new Point(-100, p.Location.Y + 20);
-
-
                 }
             }
         }
@@ -111,6 +107,14 @@ namespace WindowsFormsApp102
             {
                 timer1.Enabled = false;
                 timer2.Enabled = false;
+                if(scores.Count < 10)
+                {
+                    scores.Add(score);
+                    scores.Sort();
+                }
+                else if(scores[0] < score) scores[0] = score;
+                score = 0;
+                timer3.Enabled = false;
             }
         }
 
