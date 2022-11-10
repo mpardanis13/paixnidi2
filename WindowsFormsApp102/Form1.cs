@@ -18,7 +18,7 @@ namespace WindowsFormsApp102
     public partial class Form1 : Form
     {
         int score = 0;
-        int timeRemaining = 9;
+        int timeRemaining = 59;
         List<int> scores = new List<int>();
         List<PictureBox> bullets = new List<PictureBox>();
         List<PictureBox> enemyBullets = new List<PictureBox>();
@@ -74,11 +74,6 @@ namespace WindowsFormsApp102
             s2 = new SoundPlayer("bam2.wav");
             s3 = new SoundPlayer("yes.wav");
             s4 = new SoundPlayer("ouch.wav");
-        }
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //MessageBox.Show(e.KeyChar.ToString());
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -142,11 +137,6 @@ namespace WindowsFormsApp102
             }
         }
 
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void playAgainToolStripMenuItem_Click(object sender, EventArgs e)
         {
             menuStrip1.Visible = false;
@@ -207,7 +197,7 @@ namespace WindowsFormsApp102
         private void timer2_Tick(object sender, EventArgs e)
         {
             createBulletEnemy(pictureBox2.Location.X);
-            //pictureBox2.Location = new Point(r.Next(Width - pictureBox2.Width), pictureBox2.Location.Y);
+            pictureBox2.Location = new Point(r.Next(Width - pictureBox2.Width), pictureBox2.Location.Y);
         }
     }
 }
