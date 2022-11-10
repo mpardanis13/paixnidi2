@@ -105,6 +105,7 @@ namespace WindowsFormsApp102
             this.menuStrip1.Size = new System.Drawing.Size(902, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
             // 
             // optionsToolStripMenuItem
             // 
@@ -119,20 +120,23 @@ namespace WindowsFormsApp102
             // playAgainToolStripMenuItem
             // 
             this.playAgainToolStripMenuItem.Name = "playAgainToolStripMenuItem";
-            this.playAgainToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.playAgainToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.playAgainToolStripMenuItem.Text = "Play Again";
+            this.playAgainToolStripMenuItem.Click += new System.EventHandler(this.playAgainToolStripMenuItem_Click);
             // 
             // showTop10ScoresToolStripMenuItem
             // 
             this.showTop10ScoresToolStripMenuItem.Name = "showTop10ScoresToolStripMenuItem";
-            this.showTop10ScoresToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.showTop10ScoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showTop10ScoresToolStripMenuItem.Text = "Show Top 10 Scores";
+            this.showTop10ScoresToolStripMenuItem.Click += new System.EventHandler(this.showTop10ScoresToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -156,6 +160,7 @@ namespace WindowsFormsApp102
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);

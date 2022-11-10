@@ -8,18 +8,22 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using static System.Net.WebRequestMethods;
 
 namespace WindowsFormsApp102
 {
     public partial class Form1 : Form
     {
         int score = 0;
-        int timeRemaining = 59;
+        int timeRemaining = 9;
         List<int> scores = new List<int>();
         List<PictureBox> bullets = new List<PictureBox>();
         List<PictureBox> enemyBullets = new List<PictureBox>();
         Random r;
-        SoundPlayer s, s2, s3, s4;
+        SoundPlayer s1, s2, s3, s4;
         public Form1()
         {
             InitializeComponent();
@@ -59,9 +63,14 @@ namespace WindowsFormsApp102
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            Stream s = System.IO.File.Open("temp.dat",FileMode.Open);
+            BinaryFormatter b = new BinaryFormatter();
+            scores = (List<int>)b.Deserialize(s);
+            s.Close();
             pictureBox1.ImageLocation = "spaceship.png";
             r = new Random();
-            s = new SoundPlayer("invaderkilled.wav");
+            s1 = new SoundPlayer("invaderkilled.wav");
             s2 = new SoundPlayer("bam2.wav");
             s3 = new SoundPlayer("yes.wav");
             s4 = new SoundPlayer("ouch.wav");
@@ -111,16 +120,64 @@ namespace WindowsFormsApp102
                 {
                     scores.Add(score);
                     scores.Sort();
+                    scores = Enumerable.Reverse(scores).ToList();
                 }
                 else if(scores[0] < score) scores[0] = score;
                 score = 0;
+                timeRemaining = 59;
+                foreach (PictureBox p in bullets)
+                {
+                    p.Location = new Point(-100, p.Location.Y + 20);
+
+                }
+                foreach (PictureBox p in enemyBullets)
+                {
+                    p.Location = new Point(-100, p.Location.Y + 20);
+
+                }
                 timer3.Enabled = false;
+                MessageBox.Show("Select an option from the menu to continue.");
+                menuStrip1.Visible = true;
+
             }
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void playAgainToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuStrip1.Visible = false;
+            timer1.Enabled = true;
+            timer2.Enabled = true;
+            timer3.Enabled = true;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Stream s = System.IO.File.Open("temp.dat",FileMode.Create);
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, scores);
+            s.Close();
+        }
+
+        private void showTop10ScoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int i = 1;
+            String result = ""; 
+            foreach(int s in scores)
+            {
+                result += i.ToString() + ". " + s + Environment.NewLine;
+                i++;
+            }
+            MessageBox.Show(result);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void createBullet(int startX)
@@ -132,7 +189,7 @@ namespace WindowsFormsApp102
             p.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(p);
             bullets.Add(p);
-            s.Play();
+            s1.Play();
         }
 
         private void createBulletEnemy(int startX)
