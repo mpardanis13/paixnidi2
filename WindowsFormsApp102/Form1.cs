@@ -17,6 +17,7 @@ namespace WindowsFormsApp102
 {
     public partial class Form1 : Form
     {
+        bool playing = true;
         int score = 0;
         int timeRemaining = 59;
         List<int> scores = new List<int>();
@@ -78,28 +79,30 @@ namespace WindowsFormsApp102
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode.ToString().Equals("Left"))
+            if (playing)
             {
-                pictureBox1.Location = new Point(pictureBox1.Location.X - 15, pictureBox1.Location.Y);
-            }
-            else if (e.KeyCode.ToString().Equals("Right"))
-            {
-                pictureBox1.Location = new Point(pictureBox1.Location.X + 15, pictureBox1.Location.Y);
-            }
-            else if (e.KeyCode.ToString().Equals("Up"))
-            {
-                pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 15);
-            }
-            else if (e.KeyCode.ToString().Equals("Down"))
-            {
-                pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 15);
-            }
-            else if (e.KeyCode.ToString().Equals("Space"))
-            {
-                createBullet(pictureBox1.Location.X);
+                if (e.KeyCode.ToString().Equals("Left"))
+                {
+                    pictureBox1.Location = new Point(pictureBox1.Location.X - 15, pictureBox1.Location.Y);
+                }
+                else if (e.KeyCode.ToString().Equals("Right"))
+                {
+                    pictureBox1.Location = new Point(pictureBox1.Location.X + 15, pictureBox1.Location.Y);
+                }
+                else if (e.KeyCode.ToString().Equals("Up"))
+                {
+                    pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 15);
+                }
+                else if (e.KeyCode.ToString().Equals("Down"))
+                {
+                    pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 15);
+                }
+                else if (e.KeyCode.ToString().Equals("Space"))
+                {
+                    createBullet(pictureBox1.Location.X);
+                }
             }
         }
-
         private void timer3_Tick(object sender, EventArgs e)
         {
             if (timeRemaining > 0)
@@ -119,7 +122,9 @@ namespace WindowsFormsApp102
                 }
                 else if(scores[0] < score) scores[0] = score;
                 score = 0;
+                label1.Text = "Score: " + score.ToString();
                 timeRemaining = 59;
+                playing = false;
                 foreach (PictureBox p in bullets)
                 {
                     p.Location = new Point(-100, p.Location.Y + 20);
@@ -140,6 +145,7 @@ namespace WindowsFormsApp102
         private void playAgainToolStripMenuItem_Click(object sender, EventArgs e)
         {
             menuStrip1.Visible = false;
+            playing = true;
             timer1.Enabled = true;
             timer2.Enabled = true;
             timer3.Enabled = true;
