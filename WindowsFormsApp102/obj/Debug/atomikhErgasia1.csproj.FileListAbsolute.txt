@@ -20,3 +20,11 @@ C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bi
 C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\WindowsFormsApp102.pdb
 C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\obj\Debug\WindowsFormsApp102.exe
 C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\obj\Debug\WindowsFormsApp102.pdb
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\EntityFramework.dll
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\System.Data.SQLite.dll
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\EntityFramework.xml
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\bin\Debug\System.Data.SQLite.xml
+C:\Users\mpard\Desktop\atomikhErgasia1C#\atomikhErgasia1C-\WindowsFormsApp102\obj\Debug\atomikhErgasia1.csproj.CopyComplete
