@@ -110,7 +110,7 @@ namespace paixnidi2
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+//            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // showTop10ScoresToolStripMenuItem
             // 
@@ -217,7 +217,7 @@ namespace paixnidi2
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 31);
             this.label4.TabIndex = 16;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+//            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 

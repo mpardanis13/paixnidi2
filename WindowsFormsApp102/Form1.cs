@@ -124,6 +124,7 @@ namespace paixnidi2
 
                 }
                 // Apothikeysh dedomenwn sth bash
+                connection = new SQLiteConnection(connectionString);
                 connection.Open();
                 String createSQL = "Create table if not exists Stats(id integer auto increment primary key, name text" +
                     "score integer)";
